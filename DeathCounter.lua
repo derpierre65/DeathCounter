@@ -24,7 +24,6 @@ end
 function DeathCounter_OnLoad(self)
     self:RegisterEvent("PLAYER_DEAD")
     self:RegisterEvent("ADDON_LOADED")
-    self:RegisterEvent("PLAYER_UNGHOST")
 
     SLASH_DeathCounter1 = "/deathcounter"
     SLASH_DeathCounter2 = "/dc"
@@ -47,8 +46,6 @@ function DeathCounter_Event(self, event, addon)
     if (event == "PLAYER_DEAD") then
         DeathCounterCharDB.deaths = DeathCounterCharDB.deaths + 1
         DeathCounter_Update()
-    elseif event == "PLAYER_UNGHOST" then
-
     elseif event == "ADDON_LOADED" and addon == "DeathCounter" then
         DeathCounterCharDB = DeathCounterCharDB or {
             show = true,
